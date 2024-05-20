@@ -33,7 +33,7 @@
     </div>
   </VaCollapse>
 
-  <VaCollapse v-model="value" header="Collapse header"> Collapse content </VaCollapse>
+  <VaCollapse v-model="value" class="min-w-96" header="Collapse header"> Collapse content </VaCollapse>
   <VaCollapse v-model="value" class="min-w-96" header="Collapse header"> Collapse content </VaCollapse>
   <VaCollapse v-model="value" class="min-w-96" header="Collapse header"> Collapse content </VaCollapse>
 </template>

@@ -16,8 +16,8 @@ export default defineConfig({
       manifest: {
         name: 'Automation Systems',
         short_name: 'AutoSys',
-        description: 'Automation Systems',
-        theme_color: '#42b883',
+        description: '',
+        theme_color: '#154EC1',
         icons: [
           {
             src: '/public/android-chrome-192x192.png',

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Automation Systems</h1>
     <button v-if="deferredPrompt" @click="installApp">Install App</button>
   </div>
   <RouterView />
