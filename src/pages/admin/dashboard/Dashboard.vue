@@ -21,9 +21,9 @@ import ProductionOutputLineChart from './cards/ProductionOutputLineChart.vue'
     <div
       class="flex flex-wrap align-center justify-center md:flex-nowrap md:flex-row w-[100%] gap-4 sm:justify-between"
     >
-      <ProductionSpeedTable class="w-[50%] w-full md:w-3/6" />
+      <ProductionSpeedTable id="chart1" class="w-[50%] w-full md:w-3/6" />
 
-      <ProductionOutputLineChart class="w-[50%] w-full md:w-3/6" />
+      <ProductionOutputLineChart id="chart2" class="w-[50%] w-full md:w-3/6" />
     </div>
   </section>
 </template>

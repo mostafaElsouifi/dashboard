@@ -12,6 +12,7 @@
           size="small"
           icon="download"
           style="--va-button-lg-content-py: 0.4rem"
+          @click="saveToPdf"
         >
           PDF
         </VaButton>
@@ -49,6 +50,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { realtimeDB } from '../../../../includes/firebase'
 import { downloadAsCSV } from '../../../../services/toCSV'
+import { generatePDFReport } from '../../../../services/toPDF'
 interface Item {
   id: string
   values: any
@@ -77,6 +79,11 @@ onUnmounted(() => {
 const exportAsCSV = () => {
   const output = items.value.map((item) => item.values)
   downloadAsCSV(output, 'data-date')
+}
+
+const saveToPdf = async () => {
+  const output = items.value.map((item) => item.values)
+  await generatePDFReport(output, ['#chart1', '#chart2'])
 }
 </script>
 
