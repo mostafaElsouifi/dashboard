@@ -3,13 +3,9 @@
 export type UserRole = 'admin' | 'user' | 'owner'
 
 export type User = {
-  id: number
-  fullname: string
+  id: string
   email: string
-  username: string
   role: UserRole
-  avatar: string
-  //projects: Project[]
-  notes: string
-  active: boolean
+  name: string
+  password: string
 }

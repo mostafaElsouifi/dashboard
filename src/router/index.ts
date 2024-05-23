@@ -28,6 +28,16 @@ const routes: Array<RouteRecordRaw> = [
         path: 'settings',
         component: () => import('../pages/settings/Settings.vue'),
       },
+      {
+        name: 'users',
+        path: 'users',
+        component: () => import('../pages/users/UsersPage.vue'),
+      },
+      {
+        name: 'chat',
+        path: 'Chat with Admin',
+        component: () => import('../pages/chat/ChatPage.vue'),
+      },
 
       {
         name: 'history',

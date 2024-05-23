@@ -1,5 +1,10 @@
 import { defineStore } from 'pinia'
 import { auth, usersCollection, firebase } from '../includes/firebase'
+import axios from 'axios'
+
+const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
+const REGISTER_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`
+
 interface UserState {
   userLoggedIn: boolean
   userName: string | null | undefined
@@ -8,21 +13,11 @@ interface UserState {
 
 interface AuthValues {
   email: string
+  role: string
   password: string
   name: string
   id: string
 }
-
-// interface LoginValues {
-//   email: string
-//   password: string
-// }
-
-// interface UpdateValues {
-//   email: string
-//   password: string
-//   name: string
-// }
 
 export default defineStore('user', {
   state: (): UserState => ({
@@ -36,6 +31,7 @@ export default defineStore('user', {
       usersCollection.doc(userCred.user?.uid).set({
         email: values.email,
         name: values.name,
+        role: values.role,
         theme: this.theme,
       })
       await userCred?.user?.updateProfile({
@@ -43,7 +39,18 @@ export default defineStore('user', {
       })
       this.userLoggedIn = true
     },
-
+    // async addUser(values: AuthValues) {
+    //   const userCred = await auth.createUserWithEmailAndPassword(values.email, values.password)
+    //   usersCollection.doc(userCred.user?.uid).set({
+    //     email: values.email,
+    //     name: values.name,
+    //     role: values.role,
+    //     theme: this.theme,
+    //   })
+    //   await userCred?.user?.updateProfile({
+    //     displayName: values.name,
+    //   })
+    // },
     async login(values: AuthValues) {
       await auth.signInWithEmailAndPassword(values.email, values.password)
       this.userLoggedIn = true
@@ -80,6 +87,42 @@ export default defineStore('user', {
         }
       } catch (error) {
         console.error('Error updating theme in database:', error)
+      }
+    },
+    async getAllUsers() {
+      try {
+        const userDoc = await usersCollection.get()
+        const data = userDoc.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        return data
+      } catch (error) {
+        console.error('Error updating theme in database:', error)
+        return []
+      }
+    },
+    async addUser(values: AuthValues) {
+      try {
+        const response = await axios.post(REGISTER_URL, {
+          email: values.email,
+          password: values.password,
+          returnSecureToken: false,
+        })
+        usersCollection.doc(response.data.localId).set({
+          email: values.email,
+          name: values.name,
+          role: values.role,
+          theme: this.theme,
+        })
+        console.log('Successfully registered new user:', response.data)
+        return response.data
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          // Axios-specific error handling
+          console.error('Error registering new user:', error.response?.data || error.message)
+        } else {
+          // Generic error handling
+          console.error('An unknown error occurred:', error)
+        }
+        throw error
       }
     },
   },

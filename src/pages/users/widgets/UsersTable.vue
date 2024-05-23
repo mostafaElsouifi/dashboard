@@ -1,18 +1,16 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { defineVaDataTableColumns, useModal } from 'vuestic-ui'
 import { User, UserRole } from '../types'
-import UserAvatar from './UserAvatar.vue'
 import { PropType, computed, toRef } from 'vue'
 import { Pagination, Sorting } from '../../../data/pages/users'
 import { useVModel } from '@vueuse/core'
 //import { Project } from '../../projects/types'
 
 const columns = defineVaDataTableColumns([
-  { label: 'Full Name', key: 'fullname', sortable: true },
+  // { label: 'Full Name', key: 'fullname', sortable: true },
+  { label: 'Name', key: 'name', sortable: true },
   { label: 'Email', key: 'email', sortable: true },
-  { label: 'Username', key: 'username', sortable: true },
   { label: 'Role', key: 'role', sortable: true },
-  { label: 'Projects', key: 'projects', sortable: true },
   { label: ' ', key: 'actions', align: 'right' },
 ])
 
@@ -28,7 +26,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (event: 'edit-user', user: User): void
   (event: 'delete-user', user: User): void
   (event: 'update:sortBy', sortBy: Sorting['sortBy']): void
   (event: 'update:sortingOrder', sortingOrder: Sorting['sortingOrder']): void
@@ -51,7 +48,7 @@ const { confirm } = useModal()
 const onUserDelete = async (user: User) => {
   const agreed = await confirm({
     title: 'Delete user',
-    message: `Are you sure you want to delete ${user.fullname}?`,
+    message: `Are you sure you want to delete ${user.name}?`,
     okText: 'Delete',
     cancelText: 'Cancel',
     size: 'small',
@@ -61,23 +58,6 @@ const onUserDelete = async (user: User) => {
   if (agreed) {
     emit('delete-user', user)
   }
-}
-
-//const formatProjectNames = (projects: Project[]) => {
-  if (projects.length === 0) return 'No projects'
-  if (projects.length <= 2) {
-    return projects.map((project) => project.project_name).join(', ')
-  }
-
-  return (
-    projects
-      .slice(0, 2)
-      .map((project) => project.project_name)
-      .join(', ') +
-    ' + ' +
-    (projects.length - 2) +
-    ' more'
-  )
 }
 </script>
 
@@ -89,16 +69,9 @@ const onUserDelete = async (user: User) => {
     :items="users"
     :loading="$props.loading"
   >
-    <template #cell(fullname)="{ rowData }">
-      <div class="flex items-center gap-2 max-w-[230px] ellipsis">
-        <UserAvatar :user="rowData as User" size="small" />
-        {{ rowData.fullname }}
-      </div>
-    </template>
-
-    <template #cell(username)="{ rowData }">
+    <template #cell(name)="{ rowData }">
       <div class="max-w-[120px] ellipsis">
-        {{ rowData.username }}
+        {{ rowData.name }}
       </div>
     </template>
 
@@ -112,21 +85,8 @@ const onUserDelete = async (user: User) => {
       <VaBadge :text="rowData.role" :color="roleColors[rowData.role as UserRole]" />
     </template>
 
-    <template #cell(projects)="{ rowData }">
-      <div class="ellipsis max-w-[300px] lg:max-w-[450px]">
-        {{ formatProjectNames(rowData.projects) }}
-      </div>
-    </template>
-
     <template #cell(actions)="{ rowData }">
       <div class="flex gap-2 justify-end">
-        <VaButton
-          preset="primary"
-          size="small"
-          icon="mso-edit"
-          aria-label="Edit user"
-          @click="$emit('edit-user', rowData as User)"
-        />
         <VaButton
           preset="primary"
           size="small"
@@ -180,4 +140,4 @@ const onUserDelete = async (user: User) => {
     border-bottom: 1px solid var(--va-background-border);
   }
 }
-</style> -->
+</style>

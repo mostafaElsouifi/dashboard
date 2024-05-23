@@ -25,6 +25,20 @@ export default {
         icon: 'history',
       },
     },
+    {
+      name: 'users',
+      displayName: 'Users',
+      meta: {
+        icon: 'group',
+      },
+    },
+    {
+      name: 'chat',
+      displayName: 'Chat with Admin',
+      meta: {
+        icon: 'chat',
+      },
+    },
 
     // {
     //   name: 'auth',

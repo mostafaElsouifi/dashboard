@@ -2,10 +2,11 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 import 'firebase/database'
+import 'firebase/functions'
 const firebaseConfig = {
-  apiKey: 'AIzaSyCHH8lu5_5A0RYkI6n7iJL98X09QBIl0yc',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: 'dashboard-d98c9.firebaseapp.com',
-  databaseURL: 'https://dashboard-d98c9-default-rtdb.asia-southeast1.firebasedatabase.app/',
+  databaseURL: import.meta.env.VITE_FIREBASE_DB_URL,
   projectId: 'dashboard-d98c9',
   storageBucket: 'dashboard-d98c9.appspot.com',
   messagingSenderId: '11902328956',
@@ -17,4 +18,5 @@ const auth = firebase.auth()
 const db = firebase.firestore()
 const realtimeDB = firebase.database()
 const usersCollection = db.collection('users')
-export { auth, db, usersCollection, firebase, realtimeDB }
+const functions = firebase.functions()
+export { auth, db, usersCollection, firebase, realtimeDB, functions }

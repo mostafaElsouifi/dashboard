@@ -1,17 +1,20 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import UsersTable from './widgets/UsersTable.vue'
 import EditUserForm from './widgets/EditUserForm.vue'
 import { User } from './types'
 import { useUsers } from './composables/useUsers'
 import { useModal, useToast } from 'vuestic-ui'
+import useUser from '../../stores/user'
+const userStore = useUser()
 
 const doShowEditUserModal = ref(false)
 
-const { users, isLoading, filters, sorting, pagination, ...usersApi } = useUsers()
+const { isLoading, filters, sorting, pagination } = useUsers()
 
 const userToEdit = ref<User | null>(null)
-
+const users = ref<any[]>([])
 const showEditUserModal = (user: User) => {
   userToEdit.value = user
   doShowEditUserModal.value = true
@@ -25,25 +28,23 @@ const showAddUserModal = () => {
 const { init: notify } = useToast()
 
 const onUserSaved = async (user: User) => {
-  if (userToEdit.value) {
-    await usersApi.update(user)
-    notify({
-      message: `${user.fullname} has been updated`,
-      color: 'success',
-    })
-  } else {
-    usersApi.add(user)
-    notify({
-      message: `${user.fullname} has been created`,
-      color: 'success',
-    })
-  }
+  console.log(user)
+  await userStore.addUser(user)
+
+  notify({
+    message: `${user.name} has been created`,
+    color: 'success',
+  })
+  setTimeout(() => {
+    window.location.reload()
+  }, 2000)
 }
 
 const onUserDelete = async (user: User) => {
-  await usersApi.remove(user)
+  console.log(user.id)
+
   notify({
-    message: `${user.fullname} has been deleted`,
+    message: `${user.name} has been deleted`,
     color: 'success',
   })
 }
@@ -66,6 +67,21 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
     hide()
   }
 }
+
+onMounted(() => {
+  getUsers()
+})
+
+const getUsers = async () => {
+  try {
+    const allUsers = await userStore.getAllUsers()
+    if (allUsers.length > 0) {
+      users.value = allUsers
+    }
+  } catch (e) {
+    console.log(e)
+  }
+}
 </script>
 
 <template>
@@ -80,8 +96,9 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
             color="background-element"
             border-color="background-element"
             :options="[
-              { label: 'Active', value: true },
-              { label: 'Inactive', value: false },
+              { label: 'All', value: true },
+              { label: 'Admin', value: false },
+              { label: 'User', value: false },
             ]"
           />
           <VaInput v-model="filters.search" placeholder="Search">

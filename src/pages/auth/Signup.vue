@@ -112,6 +112,5 @@ const passwordRules: ((v: string) => boolean | string)[] = [
   (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
   (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
   (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
-  (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
 ]
 </script>
