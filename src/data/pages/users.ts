@@ -2,10 +2,20 @@ import { sleep } from '../../services/utils'
 import { User } from './../../pages/users/types'
 import { usersCollection } from '../../includes/firebase'
 
-const userDoc = await usersCollection.get()
-const data = userDoc.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+let users: User[] = []
 
-export const users = data as User[]
+async function fetchData(): Promise<void> {
+  try {
+    const userDoc = await usersCollection.get()
+    users = userDoc.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as User[]
+  } catch (error) {
+    console.error('Error fetching users:', error)
+  }
+}
+
+fetchData() // Trigger the data fetching when the module is imported
+
+export { users }
 
 export type Pagination = {
   page: number

@@ -57,6 +57,7 @@ const formData = reactive({
   password: '',
   id: '',
   name: '',
+  role: '',
 })
 
 const submit = async () => {

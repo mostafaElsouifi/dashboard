@@ -71,6 +71,7 @@ interface AuthValues {
   name: string
   email: string
   password: string
+  role: ''
 }
 
 const formData: AuthValues = reactive({
@@ -78,6 +79,7 @@ const formData: AuthValues = reactive({
   name: '',
   email: '',
   password: '',
+  role: '',
 })
 
 // get user data from db

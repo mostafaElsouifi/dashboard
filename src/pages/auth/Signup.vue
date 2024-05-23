@@ -80,6 +80,7 @@ const formData = reactive({
   password: '',
   repeatPassword: '',
   id: '',
+  role: '',
 })
 
 const submit = async () => {

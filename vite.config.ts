@@ -10,6 +10,9 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  esbuild: {
+    target: 'esnext',
+  },
   plugins: [
     vue(),
     VitePWA({

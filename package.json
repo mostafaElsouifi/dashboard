@@ -31,6 +31,7 @@
     "epic-spinners": "^2.0.0",
     "firebase": "^8.10.1",
     "flag-icons": "^6.15.0",
+    "functions": "^1.0.9",
     "html2canvas": "^1.4.1",
     "ionicons": "^4.6.3",
     "jspdf": "^2.5.1",
