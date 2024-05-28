@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { auth, usersCollection, firebase } from '../includes/firebase'
+import { auth, usersCollection, firebase, functions } from '../includes/firebase'
 import axios from 'axios'
 
 const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
@@ -9,14 +9,20 @@ interface UserState {
   userLoggedIn: boolean
   userName: string | null | undefined
   theme: string
+  isAdmin: boolean
 }
-
+// enum UserRole {
+//   Admin = 'admin',
+//   User = 'user',
+// }
 interface AuthValues {
   email: string
-  role: string
+  role: 'admin' | 'user'
   password: string
   name: string
   id: string
+  admin: boolean
+  active: boolean
 }
 
 export default defineStore('user', {
@@ -24,6 +30,7 @@ export default defineStore('user', {
     userLoggedIn: false,
     userName: null,
     theme: 'light',
+    isAdmin: false,
   }),
   actions: {
     async register(values: AuthValues) {
@@ -52,10 +59,13 @@ export default defineStore('user', {
     //   })
     // },
     async login(values: AuthValues) {
-      await auth.signInWithEmailAndPassword(values.email, values.password)
+      const credential = await auth.signInWithEmailAndPassword(values.email, values.password)
       this.userLoggedIn = true
+      const userData = await usersCollection.doc(credential?.user?.uid).get()
+      this.userName = userData?.data()?.name
     },
     async signOut() {
+      this.userName = ''
       await auth.signOut()
       this.userLoggedIn = false
     },
@@ -101,16 +111,19 @@ export default defineStore('user', {
     },
     async addUser(values: AuthValues) {
       try {
+        let admin = false
         const response = await axios.post(REGISTER_URL, {
           email: values.email,
           password: values.password,
           returnSecureToken: false,
         })
+        if (values.role === 'admin') admin = true
         usersCollection.doc(response.data.localId).set({
           email: values.email,
           name: values.name,
           role: values.role,
           theme: this.theme,
+          admin: admin,
         })
         console.log('Successfully registered new user:', response.data)
         return response.data
@@ -124,6 +137,29 @@ export default defineStore('user', {
         }
         throw error
       }
+    },
+
+    async deleteAccount() {
+      try {
+        const user = auth.currentUser
+        user?.delete()
+        const userDoc = usersCollection.doc(user?.uid)
+        userDoc.delete()
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    // delete user unsing cloud functions
+    async deleteUser(uid: string) {
+      const deleteUser = functions.httpsCallable('deleteUser')
+
+      deleteUser({ uidToDelete: uid })
+        .then((result) => {
+          console.log(result.data.message) // Output success message
+        })
+        .catch((error) => {
+          console.error('Error deleting user:', error)
+        })
     },
   },
 })

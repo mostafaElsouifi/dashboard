@@ -42,8 +42,15 @@
       <h3 class="h3">Theme</h3>
       <ThemeSwitcher />
     </div>
-
     <div class="flex flex-col p-4 space-y-4 bg-backgroundSecondary rounded-lg">
+      <h3 class="h3">Delete Account</h3>
+      <p>Please note that this action is irreversible and your account cannot be recovered once deleted</p>
+      <VaButton color="danger" class="mr-6 mb-2 col-6 w-62" icon="logout" @click="deleteAccount">
+        Delete Account
+      </VaButton>
+    </div>
+    <div class="flex flex-col p-4 space-y-4 bg-backgroundSecondary rounded-lg">
+      <h3 class="h3">Logout</h3>
       <VaButton color="danger" gradient class="mr-6 mb-2 col-3 w-32" icon="logout" @click="signOut"> Logout </VaButton>
     </div>
   </div>
@@ -53,7 +60,9 @@ import ThemeSwitcher from './theme-switcher/ThemeSwitcher.vue'
 import useUserStore from '../../stores/user'
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
-import { useForm, useToast } from 'vuestic-ui'
+import { useForm, useToast, useModal } from 'vuestic-ui'
+
+const { confirm } = useModal()
 const { validate } = useForm('form')
 const { init } = useToast()
 import { auth, usersCollection } from '../../includes/firebase'
@@ -94,12 +103,13 @@ usersCollection
 const updateData = async () => {
   if (validate()) {
     try {
-      await userStore.updatePersonalData(currentUser.uid, formData)
+      const response = await userStore.updatePersonalData(currentUser.uid, formData)
+      console.log(response)
 
-      init({
-        message: 'please check your mailbox and verify',
-        color: 'warning',
-      })
+      // init({
+      //   message: 'please check your mailbox and verify',
+      //   color: 'warning',
+      // })
 
       setTimeout(() => {
         window.location.reload()
@@ -122,12 +132,32 @@ const signOut = async () => {
   await userStore.signOut()
   push({ name: 'login' })
 }
+const deleteAccount = async () => {
+  const agreed = await confirm({
+    title: 'Delete Account',
+    message: `Are you sure you want to delete your Account?`,
+    okText: 'Delete',
+    cancelText: 'Cancel',
+    size: 'small',
+    maxWidth: '380px',
+  })
 
+  if (agreed) {
+    await userStore.deleteAccount()
+    setTimeout(() => {
+      push({ name: 'login' })
+      init({
+        message: 'Account successfuly deleted',
+        color: 'success',
+      })
+    }, 2000)
+  }
+}
 const passwordRules: ((v: string) => boolean | string)[] = [
   (v) => !!v || 'Password field is required',
   (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
   (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
   (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
-  (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
+  // (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
 ]
 </script>

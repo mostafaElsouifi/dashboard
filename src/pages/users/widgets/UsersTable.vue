@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineVaDataTableColumns, useModal } from 'vuestic-ui'
+import { defineVaDataTableColumns } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import { PropType, computed, toRef } from 'vue'
 import { Pagination, Sorting } from '../../../data/pages/users'
@@ -38,27 +38,26 @@ const sortingOrderVModel = useVModel(props, 'sortingOrder', emit)
 const roleColors: Record<UserRole, string> = {
   admin: 'danger',
   user: 'background-element',
-  owner: 'warning',
 }
 
 const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
 
-const { confirm } = useModal()
+//const { confirm } = useModal()
 
-const onUserDelete = async (user: User) => {
-  const agreed = await confirm({
-    title: 'Delete user',
-    message: `Are you sure you want to delete ${user.name}?`,
-    okText: 'Delete',
-    cancelText: 'Cancel',
-    size: 'small',
-    maxWidth: '380px',
-  })
+// const onUserDelete = async (user: User) => {
+//   const agreed = await confirm({
+//     title: 'Delete user',
+//     message: `Are you sure you want to delete ${user.name}?`,
+//     okText: 'Delete',
+//     cancelText: 'Cancel',
+//     size: 'small',
+//     maxWidth: '380px',
+//   })
 
-  if (agreed) {
-    emit('delete-user', user)
-  }
-}
+//   if (agreed) {
+//     emit('delete-user', user)
+//   }
+// }
 </script>
 
 <template>
@@ -85,7 +84,7 @@ const onUserDelete = async (user: User) => {
       <VaBadge :text="rowData.role" :color="roleColors[rowData.role as UserRole]" />
     </template>
 
-    <template #cell(actions)="{ rowData }">
+    <!-- <template #cell(actions)="{ rowData }">
       <div class="flex gap-2 justify-end">
         <VaButton
           preset="primary"
@@ -96,7 +95,7 @@ const onUserDelete = async (user: User) => {
           @click="onUserDelete(rowData as User)"
         />
       </div>
-    </template>
+    </template> -->
   </VaDataTable>
 
   <div class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2">

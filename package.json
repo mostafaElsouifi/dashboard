@@ -30,6 +30,8 @@
     "cors": "^2.8.5",
     "epic-spinners": "^2.0.0",
     "firebase": "^8.10.1",
+    "firebase-admin": "^12.1.1",
+    "firebase-functions": "^5.0.1",
     "flag-icons": "^6.15.0",
     "functions": "^1.0.9",
     "html2canvas": "^1.4.1",

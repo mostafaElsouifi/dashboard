@@ -29,20 +29,40 @@ export type Sorting = {
 }
 
 export type Filters = {
-  isActive: boolean
+  isAdmin: boolean
   search: string
+}
+const getSortItem = (obj: any, sortBy: string) => {
+  return obj[sortBy]
 }
 
 export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
   await sleep(1000)
-  const { search } = filters
+  const { search, sortBy, sortingOrder } = filters
+
   let filteredUsers = users
 
+  // filteredUsers = filteredUsers.filter((user) => user.admin === isAdmin)
+
   if (search) {
-    filteredUsers = filteredUsers.filter((user) => user.name.toLowerCase().includes(search.toLowerCase()))
+    filteredUsers = filteredUsers.filter((user) => user.email.toLowerCase().includes(search.toLowerCase()))
   }
 
   filteredUsers = filteredUsers.map((user) => ({ ...user }))
+
+  if (sortBy && sortingOrder) {
+    filteredUsers = filteredUsers.sort((a, b) => {
+      const first = getSortItem(a, sortBy)
+      const second = getSortItem(b, sortBy)
+      if (first > second) {
+        return sortingOrder === 'asc' ? 1 : -1
+      }
+      if (first < second) {
+        return sortingOrder === 'asc' ? -1 : 1
+      }
+      return 0
+    })
+  }
 
   const { page = 1, perPage = 10 } = filters || {}
   return {

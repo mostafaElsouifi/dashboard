@@ -54,8 +54,8 @@
 import { defineComponent, watch, ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-// import { useI18n } from 'vue-i18n'
 import { useColors } from 'vuestic-ui'
+// import { auth, usersCollection } from '../../includes/firebase';
 
 import navigationRoutes, { type INavigationRoute } from './NavigationRoutes'
 
@@ -70,7 +70,14 @@ export default defineComponent({
   setup: (props, { emit }) => {
     const { getColor, colorToRgba } = useColors()
     const route = useRoute()
-    // const { t } = useI18n()
+
+    // const userStore = useUserStore();
+    // console.log(NavigationRoutes)
+    // Remove 'users' route if the user is not an admin
+    // if (!userStore.isAdmin) {
+    //   NavigationRoutes.routes = NavigationRoutes.routes.filter((r) => r.name !== 'users');
+    //   console.log(NavigationRoutes)
+    // }
 
     const value = ref<boolean[]>([])
 
@@ -102,6 +109,20 @@ export default defineComponent({
 
     watch(() => route.fullPath, setActiveExpand, { immediate: true })
 
+    // onMounted(async () => {
+    //   try {
+    //     const userId = auth?.currentUser?.uid
+    //     const userData = await usersCollection.doc(userId).get()
+    //     const isUserAdmin = userData?.data()?.admin
+    //     console.log(isUserAdmin)
+    //     if (!isUserAdmin) {
+    //       const routes = navigationRoutes.routes.filter((n) => n.name !== 'users')
+    //       navigationRoutes.routes = routes
+    //     }
+    //   } catch (error) {
+    //     console.error('Error checking user role:', error)
+    //   }
+    // })
     return {
       writableVisible,
       sidebarWidth,

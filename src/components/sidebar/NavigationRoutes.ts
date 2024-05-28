@@ -5,7 +5,7 @@ export interface INavigationRoute {
   children?: INavigationRoute[]
 }
 
-export default {
+const navigationRoutes = {
   root: {
     name: '/',
     displayName: 'navigationRoutes.home',
@@ -32,13 +32,13 @@ export default {
         icon: 'group',
       },
     },
-    {
-      name: 'chat',
-      displayName: 'Chat with Admin',
-      meta: {
-        icon: 'chat',
-      },
-    },
+    // {
+    //   name: 'chat',
+    //   displayName: 'Chat with Admin',
+    //   meta: {
+    //     icon: 'chat',
+    //   },
+    // },
 
     // {
     //   name: 'auth',
@@ -79,3 +79,5 @@ export default {
     },
   ] as INavigationRoute[],
 }
+
+export default navigationRoutes

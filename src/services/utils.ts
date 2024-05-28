@@ -13,32 +13,15 @@ export const validators = {
 }
 
 export const getCurrentDate = (): string => {
-  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ]
-
   const currentDate = new Date()
 
-  // Get day of the week, month, day, and year
-  const dayOfWeek = daysOfWeek[currentDate.getDay()]
-  const month = months[currentDate.getMonth()]
+  // Get day, month, and year
   const day = currentDate.getDate()
+  const month = currentDate.getMonth() + 1 // Months are zero-based, so add 1
   const year = currentDate.getFullYear()
 
-  // Format the date string
-  const formattedDate = `${dayOfWeek.toUpperCase()} - ${day}/${currentDate.getMonth() + 1}/${year}`
+  // Format the date string as "day-month-year"
+  const formattedDate = `${day}-${month}-${year}`
 
   return formattedDate
 }

@@ -17,7 +17,7 @@
     </template>
     <template #right>
       <div class="app-navbar__actions" :is-mobile="isMobile">
-        <VaBadge class="mr-8 text-lg"> Hi {{ userStore.userName }} , </VaBadge>
+        <VaBadge class="mr-8 text-lg"> Hi {{ userStore.userName?.toUpperCase() }} , </VaBadge>
       </div>
 
       <!-- <AppNavbarActions class="app-navbar__actions" :is-mobile="isMobile" /> -->
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '../../stores/global-store'
-
+// import { auth, usersCollection } from '../../includes/firebase';
 import useUserStore from '../../stores/user.js'
 
 const userStore = useUserStore()

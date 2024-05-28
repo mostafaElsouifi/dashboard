@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { auth } from './includes/firebase'
+import { auth, usersCollection } from './includes/firebase'
 
 import useUserStore from './stores/user.js'
 import { ref, onMounted } from 'vue'
@@ -36,10 +36,14 @@ const installApp = () => {
 
 const userStore = useUserStore()
 
-if (auth.currentUser) {
-  userStore.userLoggedIn = true
-  userStore.userName = auth.currentUser.displayName?.toUpperCase()
+const getUserData = async () => {
+  if (auth.currentUser) {
+    const userData = await usersCollection.doc(auth.currentUser.uid).get()
+    userStore.userName = userData.data().name.toUpperCase()
+    userStore.isAdmin = userData.data().admin
+  }
 }
+getUserData()
 </script>
 <style lang="scss">
 @import 'scss/main.scss';
