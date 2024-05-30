@@ -17,7 +17,7 @@ interface UserState {
 // }
 interface AuthValues {
   email: string
-  role: 'admin' | 'user'
+  role: string
   password: string
   name: string
   id: string
@@ -25,6 +25,11 @@ interface AuthValues {
   active: boolean
 }
 
+interface PersonalData {
+  name: string
+  password: string
+  email: string
+}
 export default defineStore('user', {
   state: (): UserState => ({
     userLoggedIn: false,
@@ -58,8 +63,8 @@ export default defineStore('user', {
     //     displayName: values.name,
     //   })
     // },
-    async login(values: AuthValues) {
-      const credential = await auth.signInWithEmailAndPassword(values.email, values.password)
+    async login(email: string, password: string) {
+      const credential = await auth.signInWithEmailAndPassword(email, password)
       this.userLoggedIn = true
       const userData = await usersCollection.doc(credential?.user?.uid).get()
       this.userName = userData?.data()?.name
@@ -70,7 +75,7 @@ export default defineStore('user', {
       this.userLoggedIn = false
     },
 
-    async updatePersonalData(id: string, values: AuthValues) {
+    async updatePersonalData(id: string, values: PersonalData) {
       const currentUser = auth.currentUser
       if (!currentUser || !currentUser.email) {
         throw new Error('User not authenticated or email is null/undefined')

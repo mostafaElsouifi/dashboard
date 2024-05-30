@@ -39,8 +39,8 @@ const userStore = useUserStore()
 const getUserData = async () => {
   if (auth.currentUser) {
     const userData = await usersCollection.doc(auth.currentUser.uid).get()
-    userStore.userName = userData.data().name.toUpperCase()
-    userStore.isAdmin = userData.data().admin
+    userStore.userName = userData?.data()?.name.toUpperCase()
+    userStore.isAdmin = userData?.data()?.admin
   }
 }
 getUserData()

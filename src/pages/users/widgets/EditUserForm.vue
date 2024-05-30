@@ -22,6 +22,8 @@ const defaultNewUser: User = {
   name: '',
   email: '',
   password: '',
+  active: true,
+  admin: true,
 }
 
 const newUser = ref<User>({ ...defaultNewUser })

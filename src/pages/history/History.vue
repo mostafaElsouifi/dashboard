@@ -258,8 +258,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />
@@ -390,8 +390,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />
@@ -522,8 +522,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />
@@ -656,8 +656,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />
@@ -788,8 +788,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />
@@ -920,8 +920,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />
@@ -1052,8 +1052,8 @@
         <div class="flex justify-end mt-5">
           <VaPagination
             buttons-preset="secondary"
-            pages="6"
-            visible-pages="5"
+            :pages="6"
+            :visible-pages="5"
             :boundary-links="true"
             :direction-links="true"
           />

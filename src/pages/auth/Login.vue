@@ -55,15 +55,12 @@ const userStore = useUserStore()
 const formData = reactive({
   email: '',
   password: '',
-  id: '',
-  name: '',
-  role: '',
 })
 
 const submit = async () => {
   if (validate()) {
     try {
-      await userStore.login(formData)
+      await userStore.login(formData.email, formData.password)
       init({ message: "You've successfully logged in", color: 'success' })
 
       push({ name: 'dashboard' })

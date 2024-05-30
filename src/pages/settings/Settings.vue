@@ -76,19 +76,15 @@ if (!currentUser || !currentUser.email) {
 }
 
 interface AuthValues {
-  id: string
   name: string
   email: string
   password: string
-  role: ''
 }
 
 const formData: AuthValues = reactive({
-  id: '',
   name: '',
   email: '',
   password: '',
-  role: '',
 })
 
 // get user data from db
