@@ -166,6 +166,7 @@ import { realtimeDB } from '../../../../includes/firebase'
 import { downloadAsCSV } from '../../../../services/toCSV'
 import { generatePDFReport } from '../../../../services/toPDF'
 import { getCurrentDate } from '../../../../services/utils'
+import { roundToTwoDecimalPlaces } from '../../../../services/utils'
 
 interface OrderedData {
   //id: string
@@ -243,7 +244,7 @@ onMounted(() => {
             reject: item['reject'],
             starttime: item['starttime'],
             endtime: item['endtime'],
-            runninghour: item['runninghour'],
+            runninghour: roundToTwoDecimalPlaces(item['runninghour']),
             stoptimeE1: item['stoptimeE1'],
             stoptimeE2: item['stoptimeE2'],
             stoptimeE3: item['stoptimeE3'],

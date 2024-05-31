@@ -25,3 +25,7 @@ export const getCurrentDate = (): string => {
 
   return formattedDate
 }
+
+export const roundToTwoDecimalPlaces = (num: number): number => {
+  return parseFloat(num.toFixed(2))
+}

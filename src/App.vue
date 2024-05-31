@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <!-- <div>
     <button v-if="deferredPrompt" @click="installApp">Install App</button>
-  </div>
+  </div> -->
   <RouterView />
 </template>
 
@@ -9,30 +9,30 @@
 import { auth, usersCollection } from './includes/firebase'
 
 import useUserStore from './stores/user.js'
-import { ref, onMounted } from 'vue'
+//import { ref, } from 'vue'
 
-const deferredPrompt = ref<Event | null>(null)
+//const deferredPrompt = ref<Event | null>(null)
 
-onMounted(() => {
-  window.addEventListener('beforeinstallprompt', (e: Event) => {
-    e.preventDefault()
-    deferredPrompt.value = e
-  })
-})
+// onMounted(() => {
+//   window.addEventListener('beforeinstallprompt', (e: Event) => {
+//     e.preventDefault()
+//     deferredPrompt.value = e
+//   })
+// })
 
-const installApp = () => {
-  if (deferredPrompt.value) {
-    ;(deferredPrompt.value as any).prompt()
-    ;(deferredPrompt.value as any).userChoice.then((choiceResult: { outcome: string }) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the A2HS prompt')
-      } else {
-        console.log('User dismissed the A2HS prompt')
-      }
-      deferredPrompt.value = null
-    })
-  }
-}
+// const installApp = () => {
+//   if (deferredPrompt.value) {
+//     ;(deferredPrompt.value as any).prompt()
+//     ;(deferredPrompt.value as any).userChoice.then((choiceResult: { outcome: string }) => {
+//       if (choiceResult.outcome === 'accepted') {
+//         console.log('User accepted the A2HS prompt')
+//       } else {
+//         console.log('User dismissed the A2HS prompt')
+//       }
+//       deferredPrompt.value = null
+//     })
+//   }
+// }
 
 const userStore = useUserStore()
 

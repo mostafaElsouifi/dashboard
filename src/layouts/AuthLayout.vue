@@ -21,9 +21,9 @@
   <VaLayout v-else class="h-screen bg-[var(--va-background-secondary)]">
     <template #content>
       <div class="p-4">
-        <main class="h-full flex flex-row items-center justify-start mx-auto max-w-[420px]">
-          <div class="flex flex-col items-start">
-            <RouterLink class="py-4" to="/" aria-label="Visit homepage">
+        <main class="h-full flex flex-row justify-start mx-auto max-w-[420px]">
+          <div class="flex flex-col content-start">
+            <RouterLink class="mb-20" to="/" aria-label="Visit homepage">
               <p class="text-lg">Automation Systems</p>
             </RouterLink>
             <RouterView />
