@@ -9,6 +9,7 @@ import router from './router'
 import vuesticGlobalConfig from './services/vuestic-ui/global-config'
 import App from './App.vue'
 import { auth } from './includes/firebase'
+import CanvasJSChart from '@canvasjs/vue-charts'
 
 let app: any
 
@@ -17,6 +18,7 @@ auth.onAuthStateChanged(() => {
     app = createApp(App)
     app.use(stores)
     app.use(router)
+    app.use(CanvasJSChart)
     //app.use(i18n)
     app.use(createVuestic({ config: vuesticGlobalConfig }))
 

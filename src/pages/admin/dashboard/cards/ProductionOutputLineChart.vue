@@ -18,7 +18,12 @@ const chartData = ref({
     {
       label: 'Production Output',
       backgroundColor: 'yellow',
-      data: [30, 59, 20, 12, 50, 55, 40],
+      data: [8000, 9000, 10000, 12000, 50000, 55000, 4000],
+    },
+    {
+      label: 'Production Output',
+      backgroundColor: 'red',
+      data: [5, 2, 5, 3, 2, 1, 40],
     },
   ],
 })

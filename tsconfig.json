@@ -15,6 +15,12 @@
     "types": ["vite/client"],
     "allowJs": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "node_modules/vuestic-ui/**/*.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+    "node_modules/vuestic-ui/**/*.d.ts",
+    "src/pages/oee/oee_calculations.js"
+  ],
   "exclude": ["node_modules", "vite.config.ts"]
 }

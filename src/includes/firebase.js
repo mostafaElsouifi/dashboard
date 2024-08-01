@@ -12,11 +12,29 @@ const firebaseConfig = {
   messagingSenderId: '11902328956',
   appId: '1:11902328956:web:0f6a6f9b836651a11ca9f9',
 }
-firebase.initializeApp(firebaseConfig)
-const auth = firebase.auth()
-const db = firebase.firestore()
-const realtimeDB = firebase.database()
-const usersCollection = db.collection('users')
-const functions = firebase.functions()
 
-export { auth, db, usersCollection, firebase, realtimeDB, functions }
+const firebaseConfig2 = {
+  apiKey: 'AIzaSyAMUZ2b3QR7dOzlmkTRK3o_J7E9RdSMgO0',
+  authDomain: 'dashboard2-cb05d.firebaseapp.com',
+  databaseURL: 'https://dashboard2-cb05d-default-rtdb.asia-southeast1.firebasedatabase.app',
+  projectId: 'dashboard2-cb05d',
+  storageBucket: 'dashboard2-cb05d.appspot.com',
+  messagingSenderId: '833042907538',
+  appId: '1:833042907538:web:a088ed35906ddbc83fc14b',
+}
+// Initialize the first Firebase app if it hasn't been initialized yet
+const firebaseApp1 = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
+
+// Initialize the second Firebase app with a unique name if it hasn't been initialized yet
+const firebaseApp2 = !firebase.apps.some((app) => app.name === 'secondaryApp')
+  ? firebase.initializeApp(firebaseConfig2, 'secondaryApp')
+  : firebase.app('secondaryApp')
+
+const auth = firebaseApp1.auth()
+const db = firebaseApp1.firestore()
+const realtimeDB = firebaseApp1.database()
+const realtimeDB2 = firebaseApp2.database()
+const usersCollection = db.collection('users')
+const functions = firebaseApp1.functions()
+
+export { auth, db, usersCollection, firebase, realtimeDB, realtimeDB2, functions }

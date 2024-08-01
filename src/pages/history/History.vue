@@ -1,1081 +1,131 @@
-<!-- eslint-disable vue/script-indent -->
-<!-- eslint-disable vue/script-indent -->
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-  <VaCollapse v-model="value" class="min-w-96" header="Januray">
-    <VaCollapse v-model="value2" class="min-w-96" header="1-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-              {{ key }}
-            </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-            class="bg-gray-100 border-b-2 border-gray-300">
-            <td>{{ i + 1 }}</td>
-            <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-          </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-    <VaCollapse v-model="value3" class="min-w-96" header="2-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-              {{ key }}
-            </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-            class="bg-gray-100 border-b-2 border-gray-300">
-            <td>{{ i + 1 }}</td>
-            <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-          </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-    <VaCollapse v-model="value4" class="min-w-96" header="3-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-              {{ key }}
-            </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-            class="bg-gray-100 border-b-2 border-gray-300">
-            <td>{{ i + 1 }}</td>
-            <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-          </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-    <VaCollapse v-model="value5" class="min-w-96" header="4-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-              {{ key }}
-            </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-            class="bg-gray-100 border-b-2 border-gray-300">
-            <td>{{ i + 1 }}</td>
-            <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-          </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-  </VaCollapse>
-  <VaCollapse v-model="value6" class="min-w-96" header="February">
-    <VaCollapse v-model="value2" class="min-w-96" header="1-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-          {{ key }}
-        </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-        class="bg-gray-100 border-b-2 border-gray-300">
-        <td>{{ i + 1 }}</td>
-        <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-      </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-    <VaCollapse v-model="value3" class="min-w-96" header="2-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-          {{ key }}
-        </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-        class="bg-gray-100 border-b-2 border-gray-300">
-        <td>{{ i + 1 }}</td>
-        <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-      </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-    <VaCollapse v-model="value4" class="min-w-96" header="3-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-          {{ key }}
-        </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-        class="bg-gray-100 border-b-2 border-gray-300">
-        <td>{{ i + 1 }}</td>
-        <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-      </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-    <VaCollapse v-model="value5" class="min-w-96" header="4-1-2024">
-      <div class="va-table-responsive w-full px-3">
-        <table class="va-table va-table--clickable w-full">
-          <thead>
-            <h1 class="mb-2 border-b-2 border-green-500">Machine 1</h1>
-            <tr class="bg-gray-300">
-              <th>NO</th>
-              <th>Work Order</th>
-              <th>Status</th>
-              <th>Completed</th>
-              <th>Avg speed M/Min</th>
-              <th>Target</th>
-              <th>quantity</th>
-              <th>reject</th>
-              <th>Start time</th>
-              <th>End time</th>
-              <th>Running Hour</th>
-              <th colspan="3">stop time reason Hour</th>
-            </tr>
-            <tr class="bg-gray-300">
-              <th colspan="11"></th>
-              <th class="border-r-2 border-l-2 border-gray-400">E1</th>
-              <th class="border-r-2 border-gray-400">E2</th>
-              <th>E3</th>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">1</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-            <tr class="bg-gray-100 border-b-2 border-gray-300">
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">product 1</td>
-              <td class="border-r-2 border-gray-300">Run</td>
-              <td class="border-r-2 border-gray-300">Yes</td>
-              <td class="border-r-2 border-gray-300">30 M/Min</td>
-              <td class="border-r-2 border-gray-300">20</td>
-              <td class="border-r-2 border-gray-300">40</td>
-              <td class="border-r-2 border-gray-300">6</td>
-              <td class="border-r-2 border-gray-300">8:00 AM</td>
-              <td class="border-r-2 border-gray-300">10:00 AM</td>
-              <td class="border-r-2 border-gray-300">2</td>
-              <td class="border-r-2 border-gray-300">E1</td>
-              <td class="border-r-2 border-gray-300">E2</td>
-              <td>E3</td>
-            </tr>
-
-            <tr>
-              <!-- <th v-for="(value, key) in items[0].values" v-if="items.length > 0" :key="key">
-          {{ key }}
-        </th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr v-for="(item, i) in items" v-if="items.length > 0" :key="item.id"
-        class="bg-gray-100 border-b-2 border-gray-300">
-        <td>{{ i + 1 }}</td>
-        <td v-for="(value, key) in item.values" :key="key">{{ value }}</td>
-      </tr> -->
-          </tbody>
-        </table>
-        <div class="flex justify-end mt-5">
-          <VaPagination
-            buttons-preset="secondary"
-            :pages="6"
-            :visible-pages="5"
-            :boundary-links="true"
-            :direction-links="true"
-          />
-        </div>
-      </div>
-    </VaCollapse>
-  </VaCollapse>
+  <h1 class="page-title" style="font-size: 1.5rem; line-height: 0.5 !important">History</h1>
+  <div id="date-selector" class="flex flex-col gap-1 mt-5">
+    <select v-model="selectedYear" name="year" class="bg-inputBackground p-2 text-xl focus:outline-none">
+      <option value="" selected name="default">Select year</option>
+      <option v-for="year in Object.keys(availableDates)" :key="year" :value="year">{{ year }}</option>
+    </select>
+    <Transition name="fade">
+      <select
+        v-if="selectedYear"
+        v-model="selectedMonth"
+        name="month"
+        class="bg-inputBackground p-1 text-lg focus:outline-none"
+      >
+        <option value="" selected name="default">Select month</option>
+        <option v-for="month in availableDates[selectedYear]" :key="month.name" :value="month.name">
+          {{ month.name }}
+        </option>
+      </select>
+    </Transition>
+    <TransitionGroup v-if="selectedMonth && selectedYear" name="fade" tag="div" class="flex flex-wrap gap-3 mt-4">
+      <DayCircle
+        v-for="i in getDaysInMonth(selectedMonth)"
+        :key="i"
+        :class="{
+          'bg-green-500 text-white': dayChosen === i,
+          'bg-red-600 cursor-not-allowed hover:bg-red-500 text-white': !isDayAvailable(i),
+          'bg-green-600 text-white hover:bg-green-500': isDayAvailable(i),
+        }"
+        :day="i"
+        class="hover:bg-green-500 hover:text-white cursor-pointer"
+        @click="isDayAvailable(i) ? selectDay(i) : null"
+      />
+    </TransitionGroup>
+    <DataPreviewModal
+      v-if="showModal"
+      :day="dayChosen"
+      :month="selectedMonth"
+      :year="selectedYear"
+      @close="showModal = false"
+    />
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup>
+import { ref, onMounted } from 'vue'
+import DayCircle from '../../components/DayCircle.vue'
+import DataPreviewModal from '../../components/DataPreviewModal.vue'
+import { db } from '../../includes/firebase'
+const availableDates = ref({})
+const selectedYear = ref('')
+const selectedMonth = ref('')
+const dayChosen = ref(null) // State to keep track of the chosen day
+const showModal = ref(false) // State to control the modal visibility
+const allYears = ref([])
+const months = [
+  { name: 'January', days: 31 },
+  { name: 'February', days: 28 },
+  { name: 'March', days: 31 },
+  { name: 'April', days: 30 },
+  { name: 'May', days: 31 },
+  { name: 'June', days: 30 },
+  { name: 'July', days: 31 },
+  { name: 'August', days: 31 },
+  { name: 'September', days: 30 },
+  { name: 'October', days: 31 },
+  { name: 'November', days: 30 },
+  { name: 'December', days: 31 },
+]
 
-export default defineComponent({
-  data() {
-    return {
-      value: false,
-      value2: false,
-      value3: false,
-      value4: false,
-      value5: false,
-      value6: false,
+const selectDay = (day) => {
+  dayChosen.value = day
+  showModal.value = true
+}
+
+const fetchHistoryDates = async () => {
+  const snapshot = await db.collection('machine1').get()
+  snapshot.forEach((doc) => {
+    const date = doc.id // Assuming the document ID is the date in 'YYYY-MM-DD' format
+    const [year, month, day] = date.split('-')
+    if (!availableDates.value[year]) {
+      availableDates.value[year] = []
+      allYears.value.push(year)
     }
-  },
+
+    const monthIndex = parseInt(month, 10) - 1
+    const monthName = months[monthIndex].name
+
+    let monthEntry = availableDates.value[year].find((m) => m.name === monthName)
+    if (!monthEntry) {
+      monthEntry = { name: monthName, days: months[monthIndex].days, availableDays: [] }
+      availableDates.value[year].push(monthEntry)
+    }
+    if (!monthEntry.availableDays.includes(parseInt(day, 10))) {
+      monthEntry.availableDays.push(parseInt(day, 10))
+    }
+  })
+}
+
+const getDaysInMonth = (monthName) => {
+  const month = months.find((m) => m.name === monthName)
+  return month ? month.days : 0
+}
+
+const isDayAvailable = (day) => {
+  if (!selectedYear.value || !selectedMonth.value) return false
+  const monthEntry = availableDates.value[selectedYear.value].find((m) => m.name === selectedMonth.value)
+  return monthEntry ? monthEntry.availableDays.includes(day) : false
+}
+
+onMounted(() => {
+  fetchHistoryDates()
 })
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+</style>

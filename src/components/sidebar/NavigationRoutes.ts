@@ -19,6 +19,13 @@ const navigationRoutes = {
       },
     },
     {
+      name: 'oee',
+      displayName: 'OEE',
+      meta: {
+        icon: 'speed',
+      },
+    },
+    {
       name: 'history',
       displayName: 'History',
       meta: {

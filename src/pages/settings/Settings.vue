@@ -38,10 +38,10 @@
       </VaForm>
     </div>
 
-    <div class="flex flex-col p-4 space-y-4 bg-backgroundSecondary rounded-lg">
+    <!-- <div class="flex flex-col p-4 space-y-4 bg-backgroundSecondary rounded-lg">
       <h3 class="h3">Theme</h3>
       <ThemeSwitcher />
-    </div>
+    </div> -->
     <div class="flex flex-col p-4 space-y-4 bg-backgroundSecondary rounded-lg">
       <h3 class="h3">Delete Account</h3>
       <p>Please note that this action is irreversible and your account cannot be recovered once deleted</p>
@@ -56,7 +56,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import ThemeSwitcher from './theme-switcher/ThemeSwitcher.vue'
+//import ThemeSwitcher from './theme-switcher/ThemeSwitcher.vue'
 import useUserStore from '../../stores/user'
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'

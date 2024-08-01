@@ -1,26 +1,26 @@
 import { defineStore } from 'pinia'
-import { realtimeDB } from '../includes/firebase'
+import { realtimeDB2 } from '../includes/firebase'
 
-interface State {
-  realtimeData: any
+interface ActiveMachine {
+  currentMachine: any
 }
 
 export default defineStore('database', {
-  state: (): State => ({
-    realtimeData: null,
+  state: (): ActiveMachine => ({
+    currentMachine: 1,
   }),
   actions: {
-    fetchRealtimeData(reference: string) {
-      realtimeDB.ref(reference).on(
-        'value',
-        (snapshot) => {
-          this.realtimeData = snapshot.val()
-          console.log(snapshot.val())
-        },
-        (error) => {
-          console.error('Error fetching Realtime Database data:', error)
-        },
-      )
+    async fetchRealtimeData(reference: string) {
+      try {
+        const snapshot = await realtimeDB2.ref(reference).once('value')
+        return snapshot.val()
+      } catch (error) {
+        console.error('Error fetching Realtime Database data:', error)
+        throw error
+      }
+    },
+    updateCurrentMachine(newMachine: any) {
+      this.currentMachine = newMachine
     },
     // updateRealtimeData(reference: string, data: any) {
     //     realtimeDB

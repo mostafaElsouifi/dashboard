@@ -102,6 +102,19 @@ export default defineConfig({
           },
         ],
       },
+      // workbox: {
+      //   runtimeCaching: [
+      //     {
+      //       urlPattern: /^https:\/\/firebasestorage\.googleapis\.com\/.*/,
+      //       handler: 'StaleWhileRevalidate',
+      //       options: {
+      //         cacheableResponse: {
+      //           statuses: [0, 200],
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
     }),
     VueI18nPlugin({
       include: resolve(dirname(fileURLToPath(import.meta.url)), './src/i18n/locales/**'),

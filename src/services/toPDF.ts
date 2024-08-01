@@ -18,7 +18,8 @@ export async function captureScreenshot(selector: string): Promise<string> {
   return canvas.toDataURL('image/png')
 }
 
-export async function generatePDFReport(data: Record<string, any>[], selectors: string[]) {
+export async function generatePDFReport(data: Record<string, any>[]) {
+  //, selectors: string[]
   const doc = new jsPDF('p', 'mm', 'a4')
   const margin = 10
   let yPosition = margin
@@ -70,24 +71,24 @@ export async function generatePDFReport(data: Record<string, any>[], selectors: 
   }
 
   // Capture and add screenshots
-  if (selectors.length > 0) {
-    const screenshotHeight = (297 - 2 * margin - 10) / 2 // A4 height is 297mm
-    const screenshotWidth = 210 - 2 * margin // A4 width is 210mm
+  // if (selectors.length > 0) {
+  //   const screenshotHeight = (297 - 2 * margin - 10) / 2 // A4 height is 297mm
+  //   const screenshotWidth = 210 - 2 * margin // A4 width is 210mm
 
-    for (let i = 0; i < selectors.length; i += 2) {
-      const firstSelector = selectors[i]
-      const secondSelector = selectors[i + 1]
+  //   for (let i = 0; i < selectors.length; i += 2) {
+  //     const firstSelector = selectors[i]
+  //     const secondSelector = selectors[i + 1]
 
-      const firstImgData = await captureScreenshot(firstSelector)
-      const secondImgData = secondSelector ? await captureScreenshot(secondSelector) : null
+  //     // const firstImgData = await captureScreenshot(firstSelector)
+  //     // const secondImgData = secondSelector ? await captureScreenshot(secondSelector) : null
 
-      doc.addPage()
-      doc.addImage(firstImgData, 'PNG', margin, margin, screenshotWidth, screenshotHeight)
-      if (secondImgData) {
-        doc.addImage(secondImgData, 'PNG', margin, margin + screenshotHeight + 10, screenshotWidth, screenshotHeight)
-      }
-    }
-  }
+  //     doc.addPage()
+  //     doc.addImage(firstImgData, 'PNG', margin, margin, screenshotWidth, screenshotHeight)
+  //     if (secondImgData) {
+  //       doc.addImage(secondImgData, 'PNG', margin, margin + screenshotHeight + 10, screenshotWidth, screenshotHeight)
+  //     }
+  //   }
+  // }
 
   // Save the PDF
   doc.save('report.pdf')

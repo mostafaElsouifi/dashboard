@@ -1,9 +1,9 @@
-const textSizes = {
-  regularSmall: {
-    fontSize: '0.8125rem',
-    lineHeight: '1rem',
-  },
-}
+// const textSizes = {
+//   regularSmall: {
+//     fontSize: '0.8125rem',
+//     lineHeight: '1rem',
+//   },
+// }
 
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -19,6 +19,12 @@ module.exports = {
         '7xl': '1128px',
       },
       colors: {
+        inputBackground: 'var(--va-input-background)',
+        chartText: 'var(--va-chart-text)',
+        chartBackground: 'var(--va-chart-background)',
+        tableHeaderBG: 'var(--va-table-header-bg)',
+        tableHeaderText: 'var(--va-table-header-text)',
+        tableRowBG: 'var(--va-table-row-bg)',
         primary: 'var(--va-primary)',
         secondary: 'var(--va-secondary)',
         success: 'var(--va-success)',

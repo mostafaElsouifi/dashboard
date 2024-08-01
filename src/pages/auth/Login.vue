@@ -36,13 +36,13 @@
     </div>
 
     <div class="flex justify-center mt-4">
-      <VaButton class="w-full" @click="submit"> Login</VaButton>
+      <VaButton class="w-full" :disabled="buttonDisabled" @click="submit"> Login</VaButton>
     </div>
   </VaForm>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useForm, useToast } from 'vuestic-ui'
 import { validators } from '../../services/utils'
@@ -57,15 +57,18 @@ const formData = reactive({
   password: '',
 })
 
+const buttonDisabled = ref(false)
 const submit = async () => {
   if (validate()) {
     try {
+      buttonDisabled.value = true
       await userStore.login(formData.email, formData.password)
       init({ message: "You've successfully logged in", color: 'success' })
 
       push({ name: 'dashboard' })
     } catch (e) {
       let error
+      buttonDisabled.value = false
       if (e instanceof Error) {
         error = e.message
       } else {

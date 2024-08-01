@@ -44,6 +44,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'history',
         component: () => import('../pages/history/History.vue'),
       },
+      {
+        name: 'oee',
+        path: 'oee',
+        component: () => import('../pages/oee/OEE.vue'),
+      },
     ],
   },
   {
